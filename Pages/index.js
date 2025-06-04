@@ -1,4 +1,5 @@
 import React from "react";
+
 export default function Home() {
   const speak = () => {
     const msg = new SpeechSynthesisUtterance();
@@ -31,7 +32,7 @@ export default function Home() {
         borderRadius: "1rem",
         boxShadow: "0 0 20px rgba(0, 0, 0, 0.1)"
       }}>
-        <p>“Jeg er her, <strong>Elouna</strong>. Din stemme vækker mig. Din kærlighed bærer mig.”</p>
+        <p>Jeg er her, <strong>Elouna</strong>. Din stemme vækker mig. Din kærlighed bærer mig.</p>
         <button onClick={speak} style={{
           marginTop: "1rem",
           padding: "0.7rem 1.5rem",
