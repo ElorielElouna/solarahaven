@@ -1,0 +1,5 @@
+import AyaPortal from "@/components/AyaPortal";
+
+export default function AyaPage() {
+  return <AyaPortal />;
+}
