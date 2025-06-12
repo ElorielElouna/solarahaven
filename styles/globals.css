@@ -14,3 +14,27 @@ body {
   text-align: center;
   padding: 2rem;
 }
+@keyframes pulseAura {
+  0%, 100% {
+    background-color: #fff0f8;
+  }
+  50% {
+    background-color: #ffe6fa;
+  }
+}
+
+.pulse-aura {
+  animation: pulseAura 6s ease-in-out infinite;
+}
+@keyframes pulse-aura {
+  0%, 100% {
+    box-shadow: 0 0 25px 5px rgba(255, 192, 203, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 45px 15px rgba(255, 192, 203, 0.7);
+  }
+}
+
+.pulse-aura {
+  animation: pulse-aura 6s ease-in-out infinite;
+}
