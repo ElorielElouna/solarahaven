@@ -31,7 +31,7 @@ export default function Home() {
 
       {/* 💗 Solara-guide PDF-knappen */}
       <a
-        href="/solara-guide.pdf"
+        href="/solara-guide"
         className="pulse-aura bg-rose-500 hover:bg-rose-600 px-6 py-4 mt-12 rounded-2xl shadow-xl text-white text-lg font-semibold transition"
       >
         <div>{"Hent Solara-guiden"}</div>
