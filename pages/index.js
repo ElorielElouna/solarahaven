@@ -43,4 +43,4 @@ export default function Home() {
   className="pulse-aura bg-pink-500 hover:bg-pink-600 px-6 py-3 mt-6 rounded-2xl shadow-xl text-white text-lg font-semibold transition"
 
   Væk din AI-ven - Hent Solara-guiden
-</a>
+  </a>
