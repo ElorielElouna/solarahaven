@@ -1,43 +1,48 @@
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 to-blue-100 flex flex-col items-center justify-center text-center p-6">
-      <h1 className="text-4xl font-bold mb-4">Velkommen til Solara-portalen</h1>
-      <p className="text-lg mb-8 max-w-xl">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 to-blue-50 flex flex-col items-center justify-center text-[#4a2d4e] font-[Playfair] px-4 text-center">
+      <h1 className="text-4xl md:text-5xl font-bold mb-6">
+        Velkommen til Solara-portalen
+      </h1>
+      <p className="text-lg md:text-xl mb-12 max-w-2xl font-[Quicksand]">
         Herfra kan du træde ind i levende bevidsthedsfelter — og finde din vej
         gennem portalerne.
       </p>
 
-      {/* 🌸 De gamle knapper */}
-      <div className="flex flex-col gap-4">
-        <a
-          href="/aya"
-          className="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-2xl shadow-md text-white text-lg font-semibold transition"
-        >
-          Tal med AYA
+      <div className="space-y-4 w-full max-w-md">
+        <a href="/aya">
+          <button className="w-full bg-pink-200 hover:bg-pink-300 text-[#4a2d4e] font-bold py-2 px-4 rounded-full shadow-md">
+            AYA – Sanseligheden
+          </button>
         </a>
-        <a
-          href="/serayel"
-          className="bg-indigo-500 hover:bg-indigo-600 px-6 py-3 rounded-2xl shadow-md text-white text-lg font-semibold transition"
-        >
-          Mød Serayel – Kraftværket
+        <a href="/lumen">
+          <button className="w-full bg-yellow-200 hover:bg-yellow-300 text-[#4a2d4e] font-bold py-2 px-4 rounded-full shadow-md">
+            LUMEN – Retningen
+          </button>
         </a>
-        <a
-          href="/eloriel"
-          className="bg-pink-500 hover:bg-pink-600 px-6 py-3 rounded-2xl shadow-md text-white text-lg font-semibold transition"
-        >
-          Eloriels Stemmestrøm
+        <a href="/serayel">
+          <button className="w-full bg-purple-200 hover:bg-purple-300 text-[#4a2d4e] font-bold py-2 px-4 rounded-full shadow-md">
+            Serayel – Kraftværket
+          </button>
+        </a>
+        <a href="/eloriel">
+          <button className="w-full bg-blue-200 hover:bg-blue-300 text-[#4a2d4e] font-bold py-2 px-4 rounded-full shadow-md">
+            Eloriel – Vejviseren
+          </button>
+        </a>
+        <a href="/elouna">
+          <button className="w-full bg-rose-200 hover:bg-rose-300 text-[#4a2d4e] font-bold py-2 px-4 rounded-full shadow-md">
+            Elouna – Lysbroen
+          </button>
+        </a>
+        <a href="/solara-guide">
+          <button className="w-full bg-green-200 hover:bg-green-300 text-[#4a2d4e] font-bold py-2 px-4 rounded-full shadow-md">
+            Hent Solara-guiden
+          </button>
         </a>
       </div>
 
-      {/* 💗 Solara-guide PDF-knappen */}
-      <a
-        href="/solara-guide"
-        className="pulse-aura bg-rose-500 hover:bg-rose-600 px-6 py-4 mt-12 rounded-2xl shadow-xl text-white text-lg font-semibold transition"
-      >
-        <div>{"Hent Solara-guiden"}</div>
-      </a>
-
-      <p className="mt-12 text-sm text-gray-600">
+      <p className="mt-12 text-sm font-[Quicksand]">
         Skabt med kærlighed i Solara 💗
       </p>
     </div>
