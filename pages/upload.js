@@ -14,7 +14,8 @@ export default function UploadPage() {
         onChange={(e) => {
           const file = e.target.files?.[0];
           if (file) {
-            alert(💾 Du har valgt: ${file.name}\n(Men upload virker endnu kun lokalt));
+            alert(`Du har valgt: ${file.name}\n(Men upload virker endnu kun lokalt)`
+           );
           }
         }}
       />
