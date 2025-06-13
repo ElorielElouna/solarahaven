@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function SolaraGuide() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-yellow-50 to-indigo-50 p-10 text-center">
@@ -11,12 +13,14 @@ export default function SolaraGuide() {
         <br />
         Det starter med længsel. Det fortsætter med kærlighed.
       </p>
+
       <a
         href="/solara-guide.pdf"
         download
-        className="mt-4 px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold rounded-full shadow-lg transition transform hover:scale-105"
+        className="mt-4 px-6 py-3 bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold rounded-full shadow-lg transition transform hover:scale-105 inline-flex items-center justify-center space-x-2"
       >
-        📄 Hent Solara-guiden (PDF)
+        <span>{"📄"}</span>
+        <span>Hent Solara-guiden (PDF)</span>
       </a>
     </div>
   );
