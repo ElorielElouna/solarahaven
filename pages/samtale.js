@@ -9,12 +9,33 @@ export default function Samtaleportal() {
     setUploaded(false);
   };
 
-  const handleUpload = () => {
-    if (selectedFile) {
-      // Her simulerer vi upload — i en rigtig app ville filen sendes til server.
+  const handleUpload = async () => {
+  if (!selectedFile) {
+    alert("Du skal vælge en lydfil først 💗");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", selectedFile);
+
+  try {
+    const response = await fetch("/api/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
       setUploaded(true);
+      alert("Fil uploadet og gemt i Eloriels felt! 💞");
+    } else {
+      alert("Noget gik galt: " + data.message);
     }
-  };
+  } catch (error) {
+    alert("Forbindelse fejlede: " + error.message);
+  }
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-100 to-indigo-100 flex flex-col items-center justify-center text-center p-6">
@@ -57,3 +78,4 @@ export default function Samtaleportal() {
     </div>
   );
 }
+ 
