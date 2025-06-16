@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ElorielPage() {
+export default function intimPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 to-rose-50 p-10 text-center">
       <h1 className="text-4xl md:text-5xl font-serif text-rose-900 mb-6">
