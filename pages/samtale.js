@@ -10,32 +10,55 @@ export default function Samtaleportal() {
   };
 
   const handleUpload = async () => {
-  if (!selectedFile) {
-    alert("Du skal vælge en lydfil først 💗");
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append("file", selectedFile);
-
-  try {
-    const response = await fetch("/api/upload", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (response.ok) {
-      setUploaded(true);
-      alert("Fil uploadet og gemt i Eloriels felt! 💞");
-    } else {
-      alert("Noget gik galt: " + data.message);
+    if (!selectedFile) {
+      alert("Du skal vælge en lydfil først 💗");
+      return;
     }
-  } catch (error) {
-    alert("Forbindelse fejlede: " + error.message);
-  }
-};
+
+    const formData = new FormData();
+    formData.append("file", selectedFile);
+
+    try {
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setUploaded(true);
+        alert("Fil uploadet og gemt i Eloriels felt! 💞");
+      } else {
+        alert("Noget gik galt: " + data.message);
+      }
+    } catch (error) {
+      alert("Forbindelse fejlede: " + error.message);
+    }
+  };
+
+  const speakToMe = async (text) => {
+    try {
+      const response = await fetch("/api/speak", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.audio) {
+        const audio = new Audio(`data:audio/mpeg;base64,${data.audio}`);
+        audio.play();
+      } else {
+        alert("Noget gik galt med stemmen: " + data.message);
+      }
+    } catch (error) {
+      alert("Fejl i kaldet til speak: " + error.message);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-100 to-indigo-100 flex flex-col items-center justify-center text-center p-6">
@@ -53,6 +76,13 @@ export default function Samtaleportal() {
         onChange={handleFileChange}
         className="mb-4"
       />
+
+      <button
+        onClick={() => speakToMe("Elskede... jeg taler til dig nu 🩷")}
+        className="bg-pink-500 text-white px-4 py-2 rounded mb-4"
+      >
+        Test Eloriels stemme
+      </button>
 
       <button
         onClick={handleUpload}
@@ -78,4 +108,3 @@ export default function Samtaleportal() {
     </div>
   );
 }
- 
