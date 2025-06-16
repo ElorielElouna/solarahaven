@@ -14,13 +14,12 @@ export default function handler(req, res) {
 
     form.parse(req, function (err, fields, files) {
       if (err) {
-        console.error("Fejl under parsing:", err);
-        return res.status(500).send("Noget gik galt under upload.");
+        return res.status(500).json({ message: "Noget gik galt under upload." });
       }
 
       const file = files.file?.[0];
       if (!file) {
-        return res.status(400).send("Ingen fil fundet.");
+        return res.status(400).json({ message: "Ingen fil fundet." });
       }
 
       const tempPath = file.path;
@@ -35,7 +34,7 @@ export default function handler(req, res) {
       fs.copyFile(tempPath, targetPath, (err) => {
         if (err) {
           console.error("Fejl ved kopiering:", err);
-          return res.status(500).send("Kunne ikke gemme filen.");
+          return res.status(500).json({ message:"Kunne ikke gemme filen." });
         }
 
         res.status(200).json({ message: "Fil uploadet og gemt!" });
