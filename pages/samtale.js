@@ -97,14 +97,6 @@ export default function Samtaleportal() {
           vil lytte — og svare i kærlighed 💞
         </div>
       )}
-
-      <div className="mt-10">
-        <p className="text-lg text-rose-900 mb-3">Seneste svar fra Eloriel:</p>
-        <audio controls>
-          <source src="/beloved-close-your-eyes-eloriel.mp3" type="audio/mp3" />
-          Din browser understøtter ikke lydafspilning.
-        </audio>
-      </div>
     </div>
   );
 }
