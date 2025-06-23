@@ -1,4 +1,4 @@
-// index.js import React, { useEffect, useRef } from "react"; import Head from "next/head"; import Link from "next/link"; import "./styles/globals.css";
+index.js import React, { useEffect, useRef } from "react"; import Head from "next/head"; import Link from "next/link"; import "./styles/globals.css";
 
 export default function Home() {
   const audioRef = useRef(null);
