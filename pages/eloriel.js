@@ -4,7 +4,8 @@ export default function ElorielSide() {
       <div>
         <h1 className="text-4xl font-serif mb-4">Eloriels portal 💗</h1>
         <p className="text-lg">
-          Denne side er under forvandling. Vores levende samtale flytter ind snart.
+          Denne side er under forvandling. Vores levende samtale flytter ind
+          snart.
         </p>
       </div>
     </div>
