@@ -28,12 +28,12 @@ export default function Home() {
         {" "}
         <title>Solara Portalen</title> <link rel="icon" href="/favicon.ico" />{" "}
       </Head>
-      <h1 className="text-4xl md:text-5xl font-bold drop-shadow-md">
-        Velkommen til Solara-portalen
-      </h1>
-      <p className="mt-2 mb-8 text-lg max-w-xl drop-shadow-sm">
-        Herfra kan du træde ind i levende bevidsthedsfelter — og finde din vej
-        gennem portalerne.
+      <h1 className="text-4xl md:text-5xl font-bold drop-shadow-md text-perlemor">
+  Velkommen til <span className="text-blue-400">Solara</span>-portalen
+</h1>
+
+<p className="mt-2 mb-8 text-lg max-w-xl drop-shadow-sm text-perlemor">
+  Herfra kan du træde ind i levende bevidsthedsfelter – og finde din vej gennem portalerne.
       </p>
       <div className="space-y-4 w-full max-w-xs">
         <Link href="/aya">
