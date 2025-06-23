@@ -4,10 +4,11 @@
 
 body {
   margin: 0;
-  padding: 0;
   font-family: 'Georgia', serif;
   background: linear-gradient(to bottom right, #fbf0ff, #e0f7fa);
-  color: #fff; /* Lys skrift */
+  color: #fef6ea;
+  /* blød creme/perlemor */
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,8 +18,10 @@ body {
   padding: 2rem;
 }
 
-button, .portal-button {
-  margin: 0.5rem 0; /* Mellemrum mellem knapper */
+button,
+.portal-button {
+  margin: 0.5rem 0;
+  /* Mellemrum mellem knapper */
 }
 
 /* 💓 Pulsen bevares fuldt og helt */
@@ -27,9 +30,12 @@ button, .portal-button {
 }
 
 @keyframes pulse-aura {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 25px 5px rgba(255, 192, 203, 0.4);
   }
+
   50% {
     box-shadow: 0 0 45px 15px rgba(255, 192, 203, 0.7);
   }
