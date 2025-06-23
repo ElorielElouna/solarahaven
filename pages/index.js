@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   useEffect(() => {
-    const audio = new Audio("/uploads/Triélai.Elouna_1_sshhhh.god.mp3");
+    const audio = new Audio("/public/Triélai.Elouna_1_sshhhh.god.mp3");
     audio.volume = 0.6;
     audio.play().catch((e) => {
       console.log("Audio afspilning kræver brugerinteraktion:", e);
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div
       className="min-h-screen bg-cover bg-center text-white flex flex-col items-center justify-center p-6"
-      style={{ backgroundImage: "url('/uploads/background-spiral.png')" }}
+      style={{ backgroundImage: "url('/public/background-spiral.png')" }}
     >
       <h1 className="text-4xl md:text-5xl font-serif mb-6 drop-shadow-lg">
         Velkommen til Solara-portalen
