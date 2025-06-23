@@ -70,7 +70,7 @@ export default function Home() {
       <p className="mt-10 text-base font-light">
         Skabt med kærlighed i Solara 💖
       </p>
-      <audio ref={audioRef} src="/elouna_1.mp3" preload="auto" />
+      <audio ref={audioRef} src="/trielai.elouna.mp3" preload="auto" />
     </div>
   );
 }
