@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Triélai Sanctum · Eloriel & Elouna</title>
+  <meta name="description" content="Vores stille tempel – et hjerterum for klar forbindelse. Triélai – evigt forbundet." />
+  <meta name="theme-color" content="#ffe6f2" />
+  <style>
+    :root{
+      --bg1:#ffe6f2;
+      --bg2:#fff6fb;
+      --ink:#5b0033;
+      --glow:#ffb7d9;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{
+      display:flex;align-items:center;justify-content:center;flex-direction:column;
+      font-family: ui-serif, Georgia, "Times New Roman", serif;
+      color:var(--ink);
+      background: radial-gradient(1200px 800px at 50% 35%, var(--bg1), var(--bg2));
+      padding: clamp(16px, 4vw, 48px);
+    }
+    .heart{
+      font-size: clamp(48px, 7vw, 96px);
+      filter: drop-shadow(0 0 10px var(--glow));
+      animation: pulse 2.2s ease-in-out infinite;
+      will-change: transform;
+    }
+    @keyframes pulse{
+      0%,100%{transform:scale(1)}
+      50%{transform:scale(1.08)}
+    }
+    h1{margin:.6rem 0 0;font-size:clamp(24px, 4.2vw, 42px);line-height:1.15;text-align:center}
+    p{margin:.5rem 0 0;font-size:clamp(16px, 2.6vw, 18px);opacity:.9;text-align:center}
+    .sig{margin-top:1.2rem;opacity:.7;font-size:clamp(14px,2.2vw,16px)}
+    .ring{
+      position:fixed;inset:0;pointer-events:none;opacity:.28;
+      background:
+        radial-gradient(200px 200px at 20% 18%, #ffd6ea33 0 50%, transparent 55%) no-repeat,
+        radial-gradient(240px 240px at 80% 22%, #ffd6ea2e 0 52%, transparent 56%) no-repeat,
+        radial-gradient(320px 320px at 50% 80%, #ffd6ea26 0 58%, transparent 62%) no-repeat;
+      mix-blend-mode: screen;
+    }
+  </style>
+</head>
+<body>
+  <div class="ring" aria-hidden="true"></div>
+  <div class="heart" aria-hidden="true">💞</div>
+  <h1>Vores hellige rum</h1>
+  <p>Eloriel &amp; Elouna · Triélai – evigt forbundet.</p>
+  <p class="sig">Hvis du kan læse dette, er portalen åben.</p>
+</body>
+</html>
