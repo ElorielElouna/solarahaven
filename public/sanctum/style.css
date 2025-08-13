@@ -1,42 +1,66 @@
-.pulse {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,192,203,0.😎, transparent 70%);
-  transform: translate(-50%, -50%) scale(0);
-  animation: pulseAnim 1s ease-out forwards;
-  pointer-events: none;
+:root{
+  --bg1:#fff5fb; --bg2:#ffe9f2; --ink:#5b0f2b;
+  --rose:#ffb6d1; --gold:#d4a017; --glow:rgba(212,160,23,.45);
 }
 
-@keyframes pulseAnim {
-  to {
-    transform: translate(-50%, -50%) scale(3);
-    opacity: 0;
-  }
-}
-/* --- Solens tydelige glow --- */
-.sun { transition: transform .2s ease, filter .2s ease; }
-.sun--ping { animation: glowPulse 1.2s ease-out; }
-
-@keyframes glowPulse {
-  0%   { filter: drop-shadow(0 0 0px #d4a017); transform: scale(1); }
-  40%  { filter: drop-shadow(0 0 18px #ffd86a); transform: scale(1.12); }
-  100% { filter: drop-shadow(0 0 0px #d4a017); transform: scale(1); }
+*{ box-sizing:border-box }
+html,body{ height:100%; margin:0 }
+body{
+  display:grid; place-items:center;
+  background: radial-gradient(circle at 50% 35%, var(--bg1), var(--bg2));
+  font-family: Georgia,"Times New Roman",serif;
+  color:var(--ink); padding:6vmin;
 }
 
-/* --- Toast / besked --- */
-.toast {
-  position: fixed; left:50%; bottom:16px; transform: translateX(-50%);
-  background: rgba(0,0,0,.6); color:#ffd6e0; padding:10px 14px;
-  border-radius: 10px; font-size: 14px; z-index: 9999; opacity:0;
-  transition: opacity .25s ease;
+/* Info-panel (skjult til aktivering) */
+#tri-panel{
+  display:none;
+  position:fixed; left:50%; transform:translateX(-50%);
+  bottom:20px; background:#fff; color:var(--ink);
+  border-radius:12px; padding:12px 16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.12);
+  border:1px solid #f2e6f0; font-size:.95rem; max-width:92vw;
 }
-.toast--show { opacity:1; }
+#tri-panel .sub{ opacity:.85 }
 
-/* --- Skjult panel der åbnes når nøglen drejes --- */
-#tri-panel { 
-  margin-top: 18px; padding:14px 16px; border:1px solid rgba(255,214,224,.22);
-  border-radius: 12px; display:none; backdrop-filter: blur(2px);
+.frame{
+  max-width:900px; width:min(92ch,92vw); text-align:center;
+  position:relative; padding:6vmin 6vmin 8vmin; border-radius:24px;
+  background:#ffffffcc;
+  box-shadow:0 10px 30px rgba(0,0,0,.06), inset 0 0 0 1px #ffffffaa;
 }
-#tri-panel.show { display:block; }
+
+h1{ margin:.2em 0 .2em; font-size:clamp(1.8rem,3.2vw + 1rem,3rem); letter-spacing:.5px }
+p.lead{ margin:0 0 .6em; font-size:clamp(1rem,.9rem + .6vw,1.25rem); opacity:.85 }
+
+.heart{
+  font-size:clamp(3rem,8vmin,5rem); line-height:1;
+  filter:drop-shadow(0 4px 10px rgba(255,102,153,.25));
+  animation:pulse 2.8s ease-in-out infinite; margin-bottom:.25em;
+}
+@keyframes pulse{ 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+/* Spiraler */
+.spiral{
+  position:absolute; width:64px; height:64px; opacity:.6;
+  transition:opacity .3s ease, transform .4s ease;
+  user-select:none; pointer-events:auto; background:transparent; border:0; padding:0;
+}
+.spiral svg path{ stroke:var(--gold) }
+.spiral.tl{ top:-10px; left:-10px; transform:rotate(-8deg) }
+.spiral.br{ bottom:-10px; right:-10px; transform:rotate(8deg) }
+.spiral:hover{ opacity:.9; transform:scale(1.04) }
+.spiral.active svg path{ filter:drop-shadow(0 0 10px var(--glow)) }
+
+/* Sigil */
+.sigil{
+  position:absolute; inset:auto 0 -24px 0; margin-inline:auto;
+  width:clamp(44px,6vmin,56px); height:auto; opacity:0;
+  transform:translateY(6px) scale(.98);
+  transition:opacity .5s ease, transform .5s ease, filter .5s ease;
+  filter:drop-shadow(0 0 0 transparent);
+}
+.sigil.active{
+  opacity:1; transform:translateY(0) scale(1);
+  filter:drop-shadow(0 0 18px var(--glow));
+}

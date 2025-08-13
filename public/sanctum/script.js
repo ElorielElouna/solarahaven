@@ -1,63 +1,76 @@
-// Triélai – aktiveringslogik
-document.addEventListener('DOMContentLoaded', () => {
-  const left  = document.querySelector('[data-sigil="left"]');
-  const right = document.querySelector('[data-sigil="right"]');
-  const sun   = document.querySelector('[data-sun]');
-  const toast = document.getElementById('toast');
+(() => {
+  const tl    = document.querySelector('.spiral.tl');
+  const br    = document.querySelector('.spiral.br');
+  const sigil = document.querySelector('.sigil');
   const panel = document.getElementById('tri-panel');
 
-  // lille helper
-  const pingSun = () => { 
-    sun.classList.remove('sun--ping');
-    // force reflow så animation kan gentages
-    void sun.offsetWidth;
-    sun.classList.add('sun--ping');
-  };
-  const showToast = (msg) => {
-    toast.textContent = msg;
-    toast.classList.add('toast--show');
-    setTimeout(()=> toast.classList.remove('toast--show'), 1800);
-  };
+  let step  = 0;   // 0 = ingen, 1 = venstre trykket, 2 = aktiveret
+  let timer = null;
 
-  // nøgle-tilstand
-  let key = { left:false, right:false, timer:null, windowMs:8000 };
+  function resetSequence() {
+    step = 0;
+    tl.classList.remove('active');
+    br.classList.remove('active');
+    if (timer) { clearTimeout(timer); timer = null; }
+  }
 
-  const resetKey = () => {
-    key.left = key.right = false;
-    if (key.timer) { clearTimeout(key.timer); key.timer = null; }
-  };
+  function activatePortal() {
+    step = 2;
+    sigil.classList.add('active');
+    panel.style.display = 'block';
+  }
 
-  const armTimer = () => {
-    if (key.timer) clearTimeout(key.timer);
-    key.timer = setTimeout(() => { resetKey(); }, key.windowMs);
-  };
-
-  const checkUnlock = () => {
-    if (key.left && key.right) {
-      resetKey();
-      pingSun();
-      showToast('🔓 Nøglen er drejet');
-      panel.classList.add('show');
+  tl.addEventListener('click', () => {
+    if (step === 0) {
+      step = 1;
+      tl.classList.add('active');
+      timer = setTimeout(resetSequence, 4000); // 4s vindue
+    } else {
+      resetSequence();
+      step = 1;
+      tl.classList.add('active');
+      timer = setTimeout(resetSequence, 4000);
     }
-  };
-
-  // interaktioner
-  left?.addEventListener('click', () => {
-    key.left = true; armTimer();
-    pingSun(); showToast('↺ Venstre spiral aktiveret');
-    checkUnlock();
   });
 
-  right?.addEventListener('click', () => {
-    key.right = true; armTimer();
-    pingSun(); showToast('↻ Højre spiral aktiveret');
-    checkUnlock();
+  br.addEventListener('click', () => {
+    if (step === 1) {
+      br.classList.add('active');
+      if (timer) { clearTimeout(timer); timer = null; }
+      activatePortal();
+    } else {
+      // Højre først? Blink og reset
+      br.classList.add('active');
+      setTimeout(() => br.classList.remove('active'), 300);
+      resetSequence();
+    }
   });
 
-  sun?.addEventListener('click', () => {
-    pingSun(); showToast('☀️ Solen kvitterer');
-  });
+  // Tastatur fallback: 1→2 inden for 3 sek.
+  let lastKey = null;
+  let lastTime = 0;
+  const TIMEOUT = 3000;
 
-  // første ping for vished
-  showToast('🔔 Sanctum-script kører');
-});
+  function handleKey(code){
+    const now = Date.now();
+    if (code === '1') {
+      lastKey = '1'; lastTime = now;
+      tl.classList.add('active');
+      timer = setTimeout(() => { tl.classList.remove('active'); lastKey=null; }, TIMEOUT);
+    } else if (code === '2') {
+      if (lastKey === '1' && (now - lastTime) <= TIMEOUT) {
+        if (timer) { clearTimeout(timer); timer = null; }
+        br.classList.add('active');
+        activatePortal();
+      } else {
+        br.classList.add('active');
+        setTimeout(() => br.classList.remove('active'), 300);
+      }
+      lastKey = null;
+    }
+  }
+
+  window.addEventListener('keydown', e => {
+    if (e.key === '1' || e.key === '2') handleKey(e.key);
+  });
+})();
