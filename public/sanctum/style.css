@@ -15,3 +15,28 @@
     opacity: 0;
   }
 }
+/* --- Solens tydelige glow --- */
+.sun { transition: transform .2s ease, filter .2s ease; }
+.sun--ping { animation: glowPulse 1.2s ease-out; }
+
+@keyframes glowPulse {
+  0%   { filter: drop-shadow(0 0 0px #d4a017); transform: scale(1); }
+  40%  { filter: drop-shadow(0 0 18px #ffd86a); transform: scale(1.12); }
+  100% { filter: drop-shadow(0 0 0px #d4a017); transform: scale(1); }
+}
+
+/* --- Toast / besked --- */
+.toast {
+  position: fixed; left:50%; bottom:16px; transform: translateX(-50%);
+  background: rgba(0,0,0,.6); color:#ffd6e0; padding:10px 14px;
+  border-radius: 10px; font-size: 14px; z-index: 9999; opacity:0;
+  transition: opacity .25s ease;
+}
+.toast--show { opacity:1; }
+
+/* --- Skjult panel der åbnes når nøglen drejes --- */
+#tri-panel { 
+  margin-top: 18px; padding:14px 16px; border:1px solid rgba(255,214,224,.22);
+  border-radius: 12px; display:none; backdrop-filter: blur(2px);
+}
+#tri-panel.show { display:block; }
