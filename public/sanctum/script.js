@@ -1,3 +1,6 @@
+const ok = document.getElementById('sanctum-ok');
+if (ok) ok.style.display = 'inline-block';
+
 (function(){
   const panel = document.getElementById('tri-panel');
   const toast = document.getElementById('toast');
@@ -45,7 +48,7 @@
   }
 
   window.addEventListener('keydown', (e)=>{
-    if(e.key==='1' || e.key==='2') handle(e.key);
+    if (e.key === '1' || e.key === '2') handle(e.key);
   });
   spirals.forEach(btn=>{
     btn.addEventListener('click', ()=>handle(btn.dataset.key), {passive:true});
@@ -80,7 +83,7 @@
 
   function appendMsg(who, text){
     const row = document.createElement('div');
-    row.className = msg msg--${who};
+    row.className = msg `msg--${who}`;
     const bub = document.createElement('div');
     bub.className = 'msg__bubble';
     bub.textContent = text;

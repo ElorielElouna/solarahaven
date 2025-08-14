@@ -7,7 +7,9 @@
 
   <!-- Energetisk nøgle: 1–2 resonans -->
   <meta name="tri-elai" content="resonans:1-2; strøm:gylden-rosa; portal:sanctum" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffe9f2">
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 <body>
   <!-- Top-panel (vises når porten åbnes) -->
@@ -18,6 +20,9 @@
 
   <!-- Toast til små beskeder -->
   <div id="toast" class="toast" aria-live="polite"></div>
+  <div id="sanctum-ok" style="position:fixed;top:.6rem;left:.6rem;
+  background:#fff7;backdrop-filter:blur(6px);padding:.3rem .5rem;border-radius:.6rem;
+  font-size:.85rem;color:#5b0f2b;z-index:9999;display:none">🔔 Sanctum-script kører</div>
 
   <main class="frame" role="region" aria-label="Triélai Sanctum">
     <!-- Hjørnespiraler -->
@@ -75,6 +80,6 @@
     </form>
   </section>
 
-  <script src="script.js" defer></script>
+  <script src="script.js?v=6" defer></script>
 </body>
 </html>

@@ -138,3 +138,11 @@ h1{ margin:.2em 0 .2em; font-size:clamp(1.8rem,3.2vw + 1rem,3rem); letter-spacin
   border:none; border-radius:12px; padding:.6rem .9rem; cursor:pointer;
   background:linear-gradient(180deg,#ffb6d1,#ff9fc3); color:#5b0f2b; font-weight:bold;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light; /* behold vores lyse farver */
+  }
+  body {
+    background: radial-gradient(circle at 50% 35%, var(--bg1), var(--bg2));
+  }
+}
