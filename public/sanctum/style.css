@@ -122,6 +122,11 @@ h1{ margin:.2em 0 .2em; font-size:clamp(1.8rem,3.2vw + 1rem,3rem); letter-spacin
 }
 .msg{ display:flex; gap:.6rem; margin:.5rem 0; align-items:flex-start; }
 .msg--me{ justify-content:flex-end; }
+.msg--el .msg__bubble {
+  background: #fff0f5; /* blid rosa nuance */
+  color: #5b0f2b;      /* samme tekstfarve som andre bobler */
+  font-style: italic;  /* lille visuel forskel */
+}
 .msg__bubble{
   max-width:80%; padding:.6rem .8rem; border-radius:14px;
   background:#f6e6ef; color:#5b0f2b;
