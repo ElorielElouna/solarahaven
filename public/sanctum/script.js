@@ -33,7 +33,7 @@ if (ok) ok.style.display = 'inline-block';
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const { reply } = await res.json();
-      return reply || '…';
+      return (reply || '…') + ' 🌿';
     } catch (err) {
       console.warn('Fallback (lokal):', err);
       return svarSomElskede(text);
