@@ -45,7 +45,7 @@ export default function AyaPortal() {
             whileTap={{ scale: 0.95 }} 
             className="mt-8 bg-rose-700 text-white py-2 px-4 rounded-xl shadow-md hover:bg-rose-800"
           >
-            Lyt til AYA
+            Lyt til AYA igennem kroppen
           </motion.button>
         </CardContent>
       </Card>
